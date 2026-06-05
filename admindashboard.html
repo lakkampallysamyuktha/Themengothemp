@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly NGO – Program Manager Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="admindashboard.css">
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <button id="close-sidebar-admin" class="close-sidebar"><i class="ri-close-line"></i></button>
+
+        <img
+            src="admin1.webp"
+            alt="NGO volunteers"
+            class="sidebar-hero"
+        />
+
+        <div class="logo">
+            <img src="logo-removebg-preview.webp" alt="Stackly Logo" class="sidebar-logo-img" />
+        </div>
+
+        <ul>
+            <li id="admin-tab-dashboard" class="active">📊 DASHBOARD</li>
+            <li id="admin-tab-orders">📋 PROGRAMS</li>
+            <li id="admin-tab-menu">🤝 INITIATIVES</li>
+            <li id="admin-tab-guests">👥 BENEFICIARIES</li>
+            <li id="admin-tab-reservations">📅 FIELD VISITS</li>
+            <li id="logout-btn-admin" class="logout-item"><i class="ri-logout-box-r-line"></i> LOGOUT</li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="404.html"><button class="btn-return">🌱 DONOR PORTAL</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Mobile navbar -->
+        <div class="mobile-navbar">
+            <div class="nav-left">
+                <button id="mobile-menu-toggle-admin" class="mobile-menu-toggle"><i class="ri-menu-line"></i></button>
+                <div class="nav-brand">
+                    <img src="logo-removebg-preview.webp" alt="Stackly Logo" class="nav-logo-img" style="height:80px;width:80px;object-fit:contain;filter:brightness(0) saturate(100%) invert(62%) sepia(40%) saturate(500%) hue-rotate(60deg) brightness(1.2) drop-shadow(0 0 6px rgba(134,193,100,0.6));" />
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="mobile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <div class="welcome-section">
+                <p class="welcome-back">PROGRAM MANAGER PORTAL</p>
+                <!-- DYNAMIC: will be replaced with Hey, suji 👋 -->
+                <h2 id="welcomeName"></h2>
+                <p class="welcome-subtitle">Here's your NGO impact overview for today.</p>
+            </div>
+            <div class="user-info">
+                <div class="user-details">
+                    <!-- DYNAMIC: will show only the name (e.g., suji) -->
+                    <span class="user-name" id="profileEmail"></span>
+                    <!-- DYNAMIC: will show PROGRAM MANAGER or custom role -->
+                    <span class="user-role"></span>
+                </div>
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── DASHBOARD TAB ── -->
+        <div id="admin-dashboard-section" class="tab-content active">
+
+            <div class="impact-banner">
+                <img
+                    src="admindash.webp"
+                    alt="Community outreach"
+                />
+                <div class="impact-banner-overlay">
+                    <div class="banner-text">
+                        <h3>Together We Build Brighter Communities</h3>
+                        <p>Track your programs, volunteers, and on-ground impact in real time.</p>
+                    </div>
+                    <span class="impact-badge">🌱 2024 Impact Season</span>
+                </div>
+            </div>
+
+            <div class="overview-header">
+                <div class="title-section">
+                    <h2>NGO Overview</h2>
+                    <p>Key metrics and active programs at a glance.</p>
+                </div>
+                <a href="404.html"><button class="btn-download">📥 DOWNLOAD REPORT</button></a>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="kpi-card">
+                    <div class="card-header"><span class="icon">💰</span><span class="trend up">+14%</span></div>
+                    <div class="card-body"><p class="label">Funds Raised (Monthly)</p><p class="value">$84,250</p></div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header"><span class="icon">📋</span><span class="trend up">+5%</span></div>
+                    <div class="card-body"><p class="label">Active Programs</p><p class="value">48</p></div>
+                </div>
+                <div class="kpi-card">
+                    <div class="card-header"><span class="icon">🫂</span><span class="trend up">+12%</span></div>
+                    <div class="card-body"><p class="label">Beneficiaries Reached</p><p class="value">2,150</p></div>
+                </div>
+                <div class="kpi-card highlight">
+                    <div class="card-header"><span class="icon">📅</span></div>
+                    <div class="card-body"><p class="label">Field Visits Today</p><p class="value">12 Scheduled</p></div>
+                </div>
+            </div>
+
+            <div class="bottom-sections">
+                <div class="table-section">
+                    <div class="section-header"><h3>Recent Program Activity</h3></div>
+                    <table>
+                        <thead>
+                            <tr><th>PROG ID</th><th>PARTNER ORG</th><th>INITIATIVE</th><th>BUDGET USED</th><th>STATUS</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>#NG-501</td><td>Hope Foundation</td><td>Clean Water Drive</td><td>$18,500</td><td><span class="status preparing">IN PROGRESS</span></td></tr>
+                            <tr><td>#NG-500</td><td>Green Horizons</td><td>Tree Plantation</td><td>$6,200</td><td><span class="status served">COMPLETED</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="analytics-section">
+                    <div class="section-header"><h3>Funding Analytics</h3></div>
+                    <div class="chart-placeholder">
+                        <div class="chart-container"><div class="chart-line"></div></div>
+                        <div class="chart-labels"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── PROGRAMS TAB ── -->
+        <div id="admin-orders-section" class="tab-content">
+            <div class="overview-header"><h2>Manage Active Programs</h2></div>
+            <div class="table-section full-width">
+                <table>
+                    <thead><tr><th>PROG ID</th><th>PARTNER</th><th>INITIATIVE</th><th>LAST UPDATE</th><th>STATUS</th><th>ACTION</th></tr></thead>
+                    <tbody>
+                        <tr><td>#NG-505</td><td>Nolan Aid Society</td><td>Rural Education Support</td><td>Today 2:45 PM</td><td><span class="status preparing">IN PROGRESS</span></td><td><a href="404.html"><button class="btn-action">Update</button></a></td></tr>
+                        <tr><td>#NG-504</td><td>Clara Relief Fund</td><td>Flood Relief Distribution</td><td>Today 12:30 PM</td><td><span class="status served">COMPLETED</span></td><td><a href="404.html"><button class="btn-action">Archive</button></a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ── INITIATIVES TAB ── -->
+        <div id="admin-menu-section" class="tab-content">
+            <div class="overview-header">
+                <h2>Initiatives Management</h2>
+                <a href="404.html"><button class="btn-download">+ ADD INITIATIVE</button></a>
+            </div>
+            <div class="table-section full-width">
+                <table>
+                    <thead><tr><th>INITIATIVE NAME</th><th>FOCUS AREA</th><th>BUDGET</th><th>REACH</th><th>STATUS</th><th>ACTION</th></tr></thead>
+                    <tbody>
+                        <tr><td>Clean Water for All</td><td>WASH / Sanitation</td><td>$25,000</td><td>500 Families</td><td><span class="status served">ACTIVE</span></td><td><a href="404.html"><button class="btn-action">Edit</button></a></td></tr>
+                        <tr><td>Digital Literacy</td><td>Education</td><td>$12,000</td><td>Limited Slots</td><td><span class="status preparing">WAITLIST</span></td><td><a href="404.html"><button class="btn-action">Edit</button></a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ── BENEFICIARIES TAB ── -->
+        <div id="admin-guests-section" class="tab-content">
+            <div class="overview-header"><h2>Beneficiary Directory</h2></div>
+            <div class="table-section full-width">
+                <table>
+                    <thead><tr><th>NAME / ORG</th><th>EMAIL</th><th>PROGRAMS ENROLLED</th><th>AID RECEIVED</th><th>STATUS</th><th>ACTION</th></tr></thead>
+                    <tbody>
+                        <tr><td>Hope Village Community</td><td>contact@hopevillage.org</td><td>8</td><td>$52,000</td><td><span class="status served">ENROLLED</span></td><td><a href="404.html"><button class="btn-action">Profile</button></a></td></tr>
+                        <tr><td>Amara Patel</td><td>amara.patel@email.com</td><td>3</td><td>$4,500</td><td><span class="status served">ACTIVE</span></td><td><a href="404.html"><button class="btn-action">Profile</button></a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ── FIELD VISITS TAB ── -->
+        <div id="admin-reservations-section" class="tab-content">
+            <div class="overview-header"><h2>Field Visit Management</h2></div>
+            <div class="table-section full-width">
+                <table>
+                    <thead><tr><th>COMMUNITY</th><th>DATE</th><th>TIME</th><th>COORDINATOR</th><th>TYPE</th><th>STATUS</th></tr></thead>
+                    <tbody>
+                        <tr><td>Nolan Village</td><td>Jun 6, 2024</td><td>10:00 AM</td><td>J. Williams</td><td>On-Ground</td><td><span class="status served">CONFIRMED</span></td></tr>
+                        <tr><td>Marcus District</td><td>Jun 6, 2024</td><td>2:30 PM</td><td>M. Chen</td><td>Virtual Review</td><td><span class="status preparing">PENDING</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <!-- 1. Main script (signup, login, tab switching, etc.) -->
+    <script src="script.js"></script>
+
+    <!-- 2. Inline: Mobile menu + Dynamic user info (name from email) -->
+    <script>
+      (function () {
+        // ────────── DYNAMIC USER INFO (name from email) ──────────
+        const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+        if (loggedInUser) {
+          const welcomeName = document.getElementById("welcomeName");
+          const profileEmail = document.getElementById("profileEmail");
+          const profileRole = document.querySelector(".user-role");
+
+          // Extract name from email (e.g., "suji" from "suji@gmail.com")
+          const displayName = loggedInUser.email.split('@')[0];
+
+          if (welcomeName) {
+            welcomeName.innerHTML = `Hey, ${displayName} <span class="wave">👋</span>`;
+          }
+          if (profileEmail) {
+            profileEmail.innerText = displayName;
+          }
+          if (profileRole) {
+            // Show role from login; fallback to PROGRAM MANAGER
+            profileRole.innerText = loggedInUser.role ? loggedInUser.role.toUpperCase() : 'PROGRAM MANAGER';
+          }
+        }
+
+        // ────────── MOBILE SIDEBAR TOGGLE ──────────
+        var sidebar  = document.getElementById('sidebar');
+        var openBtn  = document.getElementById('mobile-menu-toggle-admin');
+        var closeBtn = document.getElementById('close-sidebar-admin');
+        var body     = document.body;
+
+        function openSidebar() {
+          sidebar.classList.add('active');
+          body.classList.add('sidebar-open');
+        }
+        function closeSidebar() {
+          sidebar.classList.remove('active');
+          body.classList.remove('sidebar-open');
+        }
+
+        if (openBtn)  openBtn.addEventListener('click', openSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+
+        // Prevent scroll leak on iOS
+        sidebar.addEventListener('touchmove', function (e) {
+          e.stopPropagation();
+        }, { passive: true });
+
+        // Close on nav item tap (mobile)
+        document.querySelectorAll('.sidebar li').forEach(function (li) {
+          li.addEventListener('click', function () {
+            if (window.innerWidth <= 768) closeSidebar();
+          });
+        });
+
+        // Close on outside tap
+        document.addEventListener('click', function (e) {
+          if (
+            sidebar.classList.contains('active') &&
+            !sidebar.contains(e.target) &&
+            e.target !== openBtn &&
+            !openBtn.contains(e.target)
+          ) {
+            closeSidebar();
+          }
+        });
+
+        // ────────── LOGOUT (clear session & redirect) ──────────
+        var logoutBtn = document.getElementById('logout-btn-admin');
+        if (logoutBtn) {
+          logoutBtn.addEventListener('click', function () {
+            sessionStorage.removeItem('loggedInUser');
+            window.location.href = 'index.html';
+          });
+        }
+      })();
+    </script>
+</body>
+</html>

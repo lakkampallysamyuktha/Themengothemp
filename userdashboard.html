@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly NGO – Volunteer Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="userdashboard.css" />
+</head>
+<body>
+
+  <!-- ── SIDEBAR ── -->
+  <div class="sidebar" id="sidebar">
+    <button id="close-sidebar" class="close-sidebar"><i class="ri-close-line"></i></button>
+
+    <img src="img1user.webp"
+         alt="Volunteers at work" class="sidebar-hero" />
+
+    <div class="logo">
+      <img src="logo-removebg-preview.webp" alt="Stackly Logo" class="sidebar-logo-img" />
+    </div>
+
+    <ul>
+      <li id="tab-dashboard" class="active">📊 DASHBOARD</li>
+      <li id="tab-orders">📋 MY PROGRAMS</li>
+      <li id="tab-menu">🤝 INITIATIVES</li>
+      <li id="tab-reservations">📅 FIELD VISITS</li>
+      <li id="tab-rewards">📁 DOCUMENTS</li>
+      <li id="logout-btn-user" class="logout-item"><i class="ri-logout-box-r-line"></i> LOGOUT</li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <button class="btn-return" onclick="window.location.href='404.html'">🌱 VOLUNTEER NOW</button>
+    </div>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <div class="main-content" id="main-content">
+
+    <!-- Mobile top navbar -->
+    <div class="top-navbar">
+      <div class="nav-left">
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle"><i class="ri-menu-line"></i></button>
+        <div class="nav-brand">
+          <img src="logo-removebg-preview.webp" alt="Stackly Logo" class="nav-logo-img" />
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-avatar"><i class="fa-solid fa-user"></i></div>
+      </div>
+    </div>
+
+    <!-- Desktop header – dynamic fields (filled by JavaScript) -->
+    <header>
+      <div class="welcome-section">
+        <p class="welcome-back">VOLUNTEER PORTAL</p>
+        <h2 id="welcomeName"></h2>  <!-- will become: Hey, suji 👋 -->
+        <p class="welcome-subtitle">Your impact is making a real difference in the world.</p>
+      </div>
+      <div class="user-info">
+        <div class="user-details">
+          <span class="user-name" id="profileEmail"></span>   <!-- will become: suji -->
+          <span class="user-role"></span>                    <!-- will become: FIELD VOLUNTEER -->
+        </div>
+        <div class="user-avatar"><i class="fa-solid fa-user"></i></div>
+      </div>
+    </header>
+
+    <!-- ── DASHBOARD TAB ── -->
+    <div id="dashboard-section" class="tab-content active">
+      <div class="volunteer-banner">
+        <img src="user2.webp" alt="Community service" />
+        <div class="volunteer-banner-overlay">
+          <div class="banner-text">
+            <h3>Your Efforts Change Lives Every Day</h3>
+            <p>Track your programs, hours, and upcoming field visits.</p>
+          </div>
+          <span class="vol-badge">🏅 Active Volunteer</span>
+        </div>
+      </div>
+
+      <div class="overview-header">
+        <div class="title-section">
+          <h2>Your Impact Hub</h2>
+          <p>An overview of your enrolled programs and upcoming visits.</p>
+        </div>
+        <button class="btn-download" onclick="window.location.href='404.html'">📁 MY DOCUMENTS</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="kpi-card">
+          <div class="card-header"><span class="icon">📋</span><span class="trend up">Active</span></div>
+          <div class="card-body"><p class="label">Enrolled Programs</p><p class="value">02</p></div>
+        </div>
+        <div class="kpi-card">
+          <div class="card-header"><span class="icon">📄</span><span class="trend up">+3 new</span></div>
+          <div class="card-body"><p class="label">Pending Documents</p><p class="value">7 Files</p></div>
+        </div>
+        <div class="kpi-card">
+          <div class="card-header"><span class="icon">🕐</span></div>
+          <div class="card-body"><p class="label">Volunteer Hours</p><p class="value">42.5 hrs</p></div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="card-header"><span class="icon">📅</span></div>
+          <div class="card-body"><p class="label">Next Field Visit</p><p class="value">Tomorrow 9:00</p></div>
+        </div>
+      </div>
+
+      <div class="bottom-sections">
+        <div class="table-section">
+          <div class="section-header">
+            <h3>Recent Programs</h3>
+            <a href="404.html" class="view-all">FULL HISTORY</a>
+          </div>
+          <table>
+            <thead>
+              <tr><th>PROG #</th><th>COORDINATOR</th><th>INITIATIVE</th><th>HOURS</th><th>STATUS</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>#NG-902</td><td>J. Williams</td><td>Clean Water Drive</td><td>18 hrs</td><td><span class="status preparing">IN PROGRESS</span></td></tr>
+              <tr><td>#NG-885</td><td>M. Chen</td><td>Tree Plantation</td><td>12 hrs</td><td><span class="status served">COMPLETED</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="analytics-section">
+          <div class="section-header"><h3>Hours Activity</h3></div>
+          <div class="chart-placeholder">
+            <div class="chart-container"><div class="chart-line"></div></div>
+            <div class="chart-labels"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MY PROGRAMS TAB ── -->
+    <div id="my-orders-section" class="tab-content">
+      <div class="overview-header"><h2>My Program History</h2></div>
+      <div class="table-section">
+        <table>
+          <thead>
+            <tr><th>PROG ID</th><th>DATE JOINED</th><th>INITIATIVE</th><th>HOURS</th><th>STATUS</th><th>ACTION</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>#NG-7721</td><td>May 12, 2024</td><td>Rural Education Support</td><td>24 hrs</td><td><span class="status served">COMPLETED</span></td><td><button class="btn-action" onclick="window.location.href='404.html'">View</button></td></tr>
+            <tr><td>#NG-7650</td><td>May 10, 2024</td><td>Flood Relief Distribution</td><td>16 hrs</td><td><span class="status served">COMPLETED</span></td><td><button class="btn-action" onclick="window.location.href='404.html'">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── INITIATIVES TAB ── -->
+    <div id="menu-section" class="tab-content">
+      <div class="overview-header"><h2>Join an Initiative</h2></div>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="service-icon"><i class="ri-water-flash-line"></i></div><h4>Clean Water Drive</h4><p>WASH / Sanitation</p><button class="btn-add" onclick="window.location.href='404.html'">Enroll</button></div>
+        <div class="menu-item"><div class="service-icon"><i class="ri-plant-line"></i></div><h4>Tree Plantation</h4><p>Environment</p><button class="btn-add" onclick="window.location.href='404.html'">Enroll</button></div>
+        <div class="menu-item"><div class="service-icon"><i class="ri-book-open-line"></i></div><h4>Digital Literacy</h4><p>Education</p><button class="btn-add" onclick="window.location.href='404.html'">Enroll</button></div>
+        <div class="menu-item"><div class="service-icon"><i class="ri-heart-pulse-line"></i></div><h4>Community Health</h4><p>Healthcare</p><button class="btn-add" onclick="window.location.href='404.html'">Enroll</button></div>
+      </div>
+    </div>
+
+    <!-- ── FIELD VISITS TAB (MANDATORY FIELDS) ── -->
+    <div id="reservations-section" class="tab-content">
+  <div class="overview-header"><h2>Schedule Field Visit</h2></div>
+  <div class="reservation-container">
+    <div class="reservation-form" id="visitForm">
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="visitDate" required />
+      </div>
+      <div class="form-group">
+        <label>Time</label>
+        <input type="time" id="visitTime" required />
+      </div>
+      <div class="form-group">
+        <label>Visit Type</label>
+        <select id="visitType" required>
+          <option value="" disabled selected>Select Visit Type</option>
+          <option>On-Ground</option>
+          <option>Virtual Review</option>
+          <option>Training Session</option>
+        </select>
+      </div>
+      <p id="formError" style="color:#e74c3c; font-size:0.9rem; margin-top:8px; display:none;">Please fill out all fields.</p>
+      <button type="button" class="btn-submit" onclick="validateAndSubmit()">Confirm Field Visit</button>
+    </div>
+    <div class="upcoming-reservations">
+      <h3>Upcoming Visits</h3>
+      <div class="reservation-card"><p><strong>Tomorrow 9:00 AM</strong></p><p>On-Ground – Clean Water Drive Site</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function validateAndSubmit() {
+    const date = document.getElementById('visitDate').value;
+    const time = document.getElementById('visitTime').value;
+    const type = document.getElementById('visitType').value;
+    const errorEl = document.getElementById('formError');
+
+    if (!date || !time || !type) {
+      // Show error, hide it after 3 seconds
+      errorEl.style.display = 'block';
+      setTimeout(() => { errorEl.style.display = 'none'; }, 3000);
+    } else {
+      errorEl.style.display = 'none';
+      window.location.href = '404.html';
+    }
+  }
+</script>
+    <!-- ── DOCUMENTS TAB ── -->
+    <div id="rewards-section" class="tab-content">
+      <div class="overview-header"><h2>Your Documents</h2></div>
+      <div class="doc-images">
+        <img src="user33.webp" alt="Certificate" />
+        <img src="user4.webp" alt="Field docs" />
+        <img src="user5.webp" alt="Reports" />
+      </div>
+      <div class="rewards-container">
+        <div class="points-balance">
+          <h3>Stored Files</h3>
+          <p class="pts">7 <span>FILES</span></p>
+        </div>
+        <div class="available-offers">
+          <h3>Recent Uploads</h3>
+          <div class="offer-card"><div><h4>Volunteer Agreement – 2024</h4><p>Uploaded May 10, 2024 · PDF</p></div><button class="btn-redeem" onclick="window.location.href='404.html'">Download</button></div>
+          <div class="offer-card"><div><h4>Field Safety Guidelines</h4><p>Uploaded Apr 28, 2024 · PDF</p></div><button class="btn-redeem" onclick="window.location.href='404.html'">Download</button></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .main-content -->
+
+  <script>
+  (function () {
+    /* ── 1. DYNAMIC USER INFO FROM SESSION STORAGE ── */
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+      const welcomeName = document.getElementById("welcomeName");
+      const profileEmail = document.getElementById("profileEmail");
+      const profileRole = document.querySelector(".user-role");
+
+      // Extract name from email (e.g., "suji" from "suji@gmail.com")
+      const displayName = loggedInUser.email.split('@')[0];
+
+      if (welcomeName) {
+        welcomeName.innerHTML = `Hey, ${displayName} <span class="wave">👋</span>`;
+      }
+      if (profileEmail) {
+        profileEmail.innerText = displayName;
+      }
+      if (profileRole) {
+        profileRole.innerText = loggedInUser.role.toUpperCase();
+      }
+    }
+
+    /* ── 2. Tab switching ── */
+    var tabs = [
+      { btn: 'tab-dashboard',    sec: 'dashboard-section' },
+      { btn: 'tab-orders',       sec: 'my-orders-section' },
+      { btn: 'tab-menu',         sec: 'menu-section' },
+      { btn: 'tab-reservations', sec: 'reservations-section' },
+      { btn: 'tab-rewards',      sec: 'rewards-section' },
+    ];
+    tabs.forEach(function (t) {
+      var btn = document.getElementById(t.btn);
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        tabs.forEach(function (x) {
+          document.getElementById(x.btn).classList.remove('active');
+          document.getElementById(x.sec).classList.remove('active');
+        });
+        btn.classList.add('active');
+        document.getElementById(t.sec).classList.add('active');
+        /* scroll main content back to top on tab change */
+        document.getElementById('main-content').scrollTop = 0;
+      });
+    });
+
+    /* ── 3. Sidebar open / close ── */
+    var sidebar = document.getElementById('sidebar');
+    var openBtn = document.getElementById('mobile-menu-toggle');
+    var closeBtn = document.getElementById('close-sidebar');
+
+    function openSidebar()  { sidebar.classList.add('active');    document.body.classList.add('sidebar-open'); }
+    function closeSidebar() { sidebar.classList.remove('active'); document.body.classList.remove('sidebar-open'); }
+
+    if (openBtn)  openBtn.addEventListener('click', openSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+
+    sidebar.addEventListener('touchmove', function (e) { e.stopPropagation(); }, { passive: true });
+
+    document.querySelectorAll('.sidebar li').forEach(function (li) {
+      li.addEventListener('click', function () { if (window.innerWidth <= 768) closeSidebar(); });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (sidebar.classList.contains('active') &&
+          !sidebar.contains(e.target) &&
+          e.target !== openBtn && !openBtn.contains(e.target)) {
+        closeSidebar();
+      }
+    });
+
+    /* ── 4. Logout ── */
+    var logoutBtn = document.getElementById('logout-btn-user');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function () {
+        sessionStorage.removeItem("loggedInUser");
+        window.location.href = 'index.html';
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

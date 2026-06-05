@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Page Not Found</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            background: #162516;
+            background-image:
+                radial-gradient(ellipse at 30% 20%, rgba(134, 193, 100, 0.04) 0%, transparent 55%),
+                radial-gradient(ellipse at 70% 70%, rgba(134, 193, 100, 0.05) 0%, transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(100, 160, 70, 0.03) 0%, transparent 70%);
+            color: white;
+        }
+
+        /* Subtle grid texture */
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background-image:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(134, 193, 100, 0.025) 60px,
+                    rgba(134, 193, 100, 0.025) 61px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(134, 193, 100, 0.025) 60px,
+                    rgba(134, 193, 100, 0.025) 61px);
+        }
+
+        /* Ambient glow orbs */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: orbDrift 12s ease-in-out infinite;
+        }
+        .ambient-orb.orb-1 {
+            width: 350px;
+            height: 350px;
+            background: rgba(134, 193, 100, 0.08);
+            top: -80px;
+            right: -60px;
+            animation-delay: 0s;
+        }
+        .ambient-orb.orb-2 {
+            width: 250px;
+            height: 250px;
+            background: rgba(134, 193, 100, 0.06);
+            bottom: -60px;
+            left: -50px;
+            animation-delay: -5s;
+            animation-duration: 15s;
+        }
+        .ambient-orb.orb-3 {
+            width: 180px;
+            height: 180px;
+            background: rgba(160, 210, 120, 0.05);
+            top: 40%;
+            left: 55%;
+            animation-delay: -8s;
+            animation-duration: 18s;
+        }
+
+        @keyframes orbDrift {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -25px) scale(1.08);
+            }
+            50% {
+                transform: translate(-15px, 20px) scale(0.94);
+            }
+            75% {
+                transform: translate(-25px, -15px) scale(1.05);
+            }
+        }
+
+        /* Pulse rings */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 2px solid rgba(134, 193, 100, 0.1);
+            z-index: 0;
+            pointer-events: none;
+            animation: pulseRing 6s ease-in-out infinite;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -70px;
+            left: -70px;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 2px solid rgba(134, 193, 100, 0.07);
+            z-index: 0;
+            pointer-events: none;
+            animation: pulseRing 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulseRing {
+            0%,
+            100% {
+                transform: scale(0.92);
+                opacity: 0.45;
+            }
+            50% {
+                transform: scale(1.06);
+                opacity: 0.1;
+            }
+        }
+
+        .error-container {
+            width: 90%;
+            max-width: 1100px;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #86c164;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 55px;
+            position: relative;
+        }
+        .logo i {
+            font-size: 1.8rem;
+            animation: leafSway 3s ease-in-out infinite;
+        }
+
+        @keyframes leafSway {
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+            30% {
+                transform: rotate(6deg);
+            }
+            60% {
+                transform: rotate(-4deg);
+            }
+            85% {
+                transform: rotate(2deg);
+            }
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* Left text block */
+        .error-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #86c164;
+            background: rgba(134, 193, 100, 0.1);
+            border: 1px solid rgba(134, 193, 100, 0.22);
+            border-radius: 30px;
+            padding: 6px 16px;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.7s ease-out;
+        }
+
+        .error-text h1 {
+            font-size: 8.5rem;
+            font-family: 'Playfair Display', serif;
+            line-height: 0.9;
+            color: #86c164;
+            text-shadow: 0 0 60px rgba(134, 193, 100, 0.18);
+            font-weight: 700;
+            letter-spacing: -2px;
+            animation: fadeInUp 0.7s ease-out 0.1s both;
+            position: relative;
+        }
+        .error-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: #86c164;
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .error-text h2 {
+            font-size: 2.4rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            margin-top: 8px;
+            margin-bottom: 18px;
+            color: #e6efe2;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.7s ease-out 0.2s both;
+        }
+
+        .error-text p {
+            font-size: 0.95rem;
+            color: #8aab7c;
+            max-width: 480px;
+            line-height: 1.9;
+            font-weight: 300;
+            letter-spacing: 0.4px;
+            animation: fadeInUp 0.7s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Buttons - exactly 2 */
+        .buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 38px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.7s ease-out 0.4s both;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        /* Primary - Back to Homepage */
+        .primary-btn {
+            background: #86c164;
+            color: #0f1f0f;
+            border: none;
+            box-shadow: 0 4px 18px rgba(134, 193, 100, 0.25);
+        }
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(134, 193, 100, 0.35);
+            background: #76b354;
+        }
+        .primary-btn:hover i {
+            transform: translateX(-3px);
+        }
+        .primary-btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(134, 193, 100, 0.3);
+            transition: all 0.1s ease;
+        }
+
+        /* Secondary */
+        .secondary-btn {
+            border: 1.5px solid rgba(134, 193, 100, 0.3);
+            color: #a8d48a;
+            background: rgba(134, 193, 100, 0.04);
+            backdrop-filter: blur(4px);
+        }
+        .secondary-btn:hover {
+            background: rgba(134, 193, 100, 0.1);
+            border-color: rgba(134, 193, 100, 0.5);
+            color: #c5e8ae;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(134, 193, 100, 0.12);
+        }
+        .secondary-btn:active {
+            transform: translateY(-1px);
+            transition: all 0.1s ease;
+        }
+
+        /* Right side - decorative plate */
+        .error-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 280px;
+            animation: fadeInUp 0.7s ease-out 0.25s both;
+        }
+
+        .plate {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(134, 193, 100, 0.04);
+            border: 1.5px solid rgba(134, 193, 100, 0.16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floatPlate 5.5s ease-in-out infinite;
+            box-shadow:
+                0 0 70px rgba(134, 193, 100, 0.06),
+                inset 0 0 40px rgba(134, 193, 100, 0.025);
+            position: relative;
+            transition: box-shadow 0.5s ease;
+        }
+        .plate:hover {
+            box-shadow:
+                0 0 90px rgba(134, 193, 100, 0.12),
+                inset 0 0 50px rgba(134, 193, 100, 0.04);
+        }
+
+        .plant-icon {
+            font-size: 6.5rem;
+            color: #86c164;
+            opacity: 0.7;
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes gentlePulse {
+            0%,
+            100% {
+                opacity: 0.7;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.06);
+            }
+        }
+
+        @keyframes floatPlate {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Floating leaf accents around the plate */
+        .plate::before {
+            content: '🌿';
+            position: absolute;
+            top: 22px;
+            right: 28px;
+            font-size: 1.5rem;
+            opacity: 0.4;
+            animation: floatLeaf 4.5s ease-in-out infinite 0.8s;
+            pointer-events: none;
+        }
+        .plate::after {
+            content: '🌱';
+            position: absolute;
+            bottom: 32px;
+            left: 28px;
+            font-size: 1.1rem;
+            opacity: 0.35;
+            animation: floatLeaf 5.5s ease-in-out infinite 1.6s;
+            pointer-events: none;
+        }
+
+        /* Extra tiny floating dot */
+        .plate .extra-accent {
+            position: absolute;
+            top: 55%;
+            right: 18px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #86c164;
+            opacity: 0.3;
+            animation: floatLeaf 6s ease-in-out infinite 0.2s;
+            pointer-events: none;
+        }
+
+        @keyframes floatLeaf {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            40% {
+                transform: translateY(-14px) rotate(8deg);
+            }
+            70% {
+                transform: translateY(-6px) rotate(-5deg);
+            }
+        }
+
+        /* Subtle dot pattern near the plate */
+        .plate-wrapper {
+            position: relative;
+        }
+        .plate-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(134, 193, 100, 0.2);
+            top: -12px;
+            left: 60%;
+            animation: floatLeaf 7s ease-in-out infinite 3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .plate-wrapper::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(134, 193, 100, 0.18);
+            bottom: -8px;
+            right: 35%;
+            animation: floatLeaf 5s ease-in-out infinite 2s;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .logo {
+                justify-content: center;
+                margin-bottom: 28px;
+            }
+            body {
+                overflow: auto;
+                padding: 40px 0;
+            }
+            .buttons {
+                justify-content: center;
+            }
+            .error-text h1 {
+                font-size: 6.5rem;
+            }
+            .error-text h1::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .error-text h2 {
+                font-size: 2rem;
+            }
+            .error-text p {
+                max-width: 100%;
+                padding: 0 8px;
+            }
+            .plate {
+                width: 220px;
+                height: 220px;
+            }
+            .plant-icon {
+                font-size: 5rem;
+            }
+            .error-text {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .error-text h1 {
+                font-size: 5rem;
+            }
+            .error-text h2 {
+                font-size: 1.5rem;
+            }
+            .error-text p {
+                font-size: 0.85rem;
+                padding: 0 4px;
+            }
+            .logo {
+                font-size: 1rem;
+            }
+            .logo i {
+                font-size: 1.3rem;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 13px 20px;
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+            .buttons {
+                gap: 10px;
+                width: 100%;
+            }
+            .plate {
+                width: 180px;
+                height: 180px;
+            }
+            .plant-icon {
+                font-size: 4rem;
+            }
+            .plate::before {
+                font-size: 1.2rem;
+                top: 14px;
+                right: 18px;
+            }
+            .plate::after {
+                font-size: 0.9rem;
+                bottom: 20px;
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient background elements -->
+    <div class="grid-bg"></div>
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+
+    <div class="error-container">
+
+        <!-- Logo -->
+        <div class="logo">
+            <i class="ri-plant-line"></i>
+            Stackly
+        </div>
+
+        <!-- Main content -->
+        <div class="content">
+
+            <!-- Text section -->
+            <div class="error-text">
+                <div class="badge">🌱 Making a Difference</div>
+                <h1>404</h1>
+                <h2>Path Not Found</h2>
+                <p>
+                    Even the most dedicated journeys hit an unexpected turn. The page you're looking for has moved,
+                    or perhaps never existed. Let's get you back to where the impact happens.
+                </p>
+
+                <!-- Exactly 2 buttons -->
+                <div class="buttons">
+                    <a href="index.html" class="btn primary-btn">
+                        <i class="ri-home-4-line"></i>
+                        Back to Homepage
+                    </a>
+                    <a href="mailto:support@stackly.org" class="btn secondary-btn">
+                        <i class="ri-mail-line"></i>
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual plate -->
+            <div class="error-image">
+                <div class="plate-wrapper">
+                    <div class="plate">
+                        <i class="ri-seedling-line plant-icon"></i>
+                        <span class="extra-accent"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
